@@ -60,7 +60,7 @@ def fetch_gif(keyword=None):
 
         save_btn.config(state="normal")
         download_btn.config(state="normal")
-        status_label.config(text="GIF Loaded ✅", fg="lightgreen")
+        status_label.config(text="GIF Loaded", fg="lightgreen")
 
     except Exception as e:
         messagebox.showerror("Error", str(e))
@@ -80,7 +80,7 @@ def save_favorite():
     if current_gif_url:
         with open("favorites.txt", "a") as f:
             f.write(current_gif_url + "\n")
-        messagebox.showinfo("Saved", "Added to favorites ❤️")
+        messagebox.showinfo("Saved", "Added to favorites")
 
 
 # View favorites
@@ -118,12 +118,12 @@ def download_gif():
         with open(file_path, "wb") as f:
             f.write(data)
 
-        messagebox.showinfo("Downloaded", f"Saved to {file_path} ⬇️")
+        messagebox.showinfo("Downloaded", f"Saved to {file_path}")
 
 
 # UI
 root = tk.Tk()
-root.title("GIF Grabber ULTRA 🔥")
+root.title("GIF Grabber ULTRA")
 root.geometry("420x600")
 root.config(bg="#121212")
 
@@ -134,7 +134,7 @@ title.pack(pady=10)
 entry = tk.Entry(root, width=25, font=("Arial", 12))
 entry.pack(pady=10)
 
-search_btn = tk.Button(root, text="Search 🔍",
+search_btn = tk.Button(root, text="Search",
                        command=lambda: fetch_gif(),
                        bg="#00ffcc", fg="black")
 search_btn.pack(pady=5)
@@ -143,9 +143,9 @@ search_btn.pack(pady=5)
 frame = tk.Frame(root, bg="#121212")
 frame.pack(pady=5)
 
-tk.Button(frame, text="😂 Meme", command=lambda: fetch_gif("meme")).grid(row=0, column=0, padx=5)
-tk.Button(frame, text="🐱 Cat", command=lambda: fetch_gif("cat")).grid(row=0, column=1, padx=5)
-tk.Button(frame, text="😎 Cool", command=lambda: fetch_gif("cool")).grid(row=0, column=2, padx=5)
+tk.Button(frame, text=" Meme", command=lambda: fetch_gif("meme")).grid(row=0, column=0, padx=5)
+tk.Button(frame, text=" Cat", command=lambda: fetch_gif("cat")).grid(row=0, column=1, padx=5)
+tk.Button(frame, text=" Cool", command=lambda: fetch_gif("cool")).grid(row=0, column=2, padx=5)
 
 gif_label = tk.Label(root, bg="#121212")
 gif_label.pack(pady=20)
@@ -153,15 +153,15 @@ gif_label.pack(pady=20)
 status_label = tk.Label(root, text="", bg="#121212", fg="white")
 status_label.pack()
 
-save_btn = tk.Button(root, text="Save ❤️", state="disabled",
+save_btn = tk.Button(root, text="Save", state="disabled",
                      command=save_favorite, bg="#2196F3", fg="white")
 save_btn.pack(pady=5)
 
-download_btn = tk.Button(root, text="Download ⬇️", state="disabled",
+download_btn = tk.Button(root, text="Download ", state="disabled",
                          command=download_gif, bg="#4CAF50", fg="white")
 download_btn.pack(pady=5)
 
-view_btn = tk.Button(root, text="Favorites 📂",
+view_btn = tk.Button(root, text="Favorites ",
                      command=view_favorites, bg="#FF9800", fg="white")
 view_btn.pack(pady=10)
 
